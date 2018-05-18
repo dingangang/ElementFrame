@@ -1,0 +1,17 @@
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.hover-item.active .icon-activity{
+  width: 56px;
+  height: 56px;
+  background-position: -98px 0px;
+  background-image: url('../assets/sprite.png');
+}
+.icon-add{
+  width: 88px;
+  height: 88px;
+  background-position: 0px 0px;
+  background-image: url('../assets/sprite.png');
+}

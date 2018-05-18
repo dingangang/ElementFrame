@@ -1,0 +1,20 @@
+$browser-default-font-size:20px;
+
+@function pxToRem($px){
+  @return $px / ( 2 * $browser-default-font-size) * 1rem;
+}
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+{{#sprites}}
+{{name}}{
+  width: pxToRem({{px.width}});
+  height: pxToRem({{px.height}});
+  background-position: pxToRem({{px.offset_x}}) pxToRem({{px.offset_y}});
+  background-size: pxToRem({{px.total_width}}) pxToRem({{px.total_height}});
+  background-image: url('../assets/sprite.png');
+}
+{{/sprites}}
