@@ -10,22 +10,22 @@
 </template>
 
 <script scoped>
-import Child from '@/components/Child';
+import Child from '@/components/Child'
 
 export default{
   props: [],
   methods: {
     handleClick: function () {
-      console.log(1);
+      console.log(1)
     },
     handlePfn: function () {
-      console.log('from child');
-    },
+      console.log('from child')
+    }
   },
   components: {
-    Child,
-  },
-};
+    Child
+  }
+}
 </script>
 
 <style scoped></style>

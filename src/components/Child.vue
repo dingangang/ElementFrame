@@ -9,10 +9,10 @@ export default{
   props: [],
   methods: {
     handleChild: function () {
-      this.$emit('pfn');
-    },
-  },
-};
+      this.$emit('pfn')
+    }
+  }
+}
 </script>
 
 <style scoped></style>

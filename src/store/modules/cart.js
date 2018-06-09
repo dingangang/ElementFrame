@@ -1,20 +1,20 @@
 // initial state
 const state = {
-  added: [1, 2],
-};
+  added: [1, 2]
+}
 
 // getters
-const getters = {};
+const getters = {}
 
 // actions
-const actions = {};
+const actions = {}
 
 // mutations
-const mutations = {};
+const mutations = {}
 
 export default {
   state,
   getters,
   actions,
-  mutations,
-};
+  mutations
+}
