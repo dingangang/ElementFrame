@@ -24,7 +24,7 @@ npm run build
 ### Spritesmith 
 启用了方便的雪碧图。
 
-icons请放在static/phoneIcons文件夹中。
+icons请放在static/icons文件夹中。
 
 对应的Spritesmith配置在build/webpack.dev.conf.js中。部分注释了的内容时是适配移动端的雪碧图生成配置。请按需修改。
 

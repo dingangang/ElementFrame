@@ -69,7 +69,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new SpritesmithPlugin({
       // 目标小图标
       src: {
-        cwd: path.resolve(__dirname, '../static/phoneIcons/'),
+        cwd: path.resolve(__dirname, '../static/icons/'),
         glob: '*.png'
       },
       // 输出雪碧图文件及样式文件
