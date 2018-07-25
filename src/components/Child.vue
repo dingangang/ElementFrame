@@ -1,10 +1,11 @@
 <template>
   <div>
-    <button @click="handleChild">Child</button>
+    <el-button type="success" @click="handleChild">Child</el-button>
   </div>
 </template>
 
 <script scoped>
+
 export default{
   props: [],
   methods: {

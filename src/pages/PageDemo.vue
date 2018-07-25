@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="handleClick">Click</button>
+    <el-button @click="handleClick">Click</el-button>
     <child @pfn="handlePfn"></child>
     <el-container>
       <el-header>Header</el-header>
@@ -11,6 +11,7 @@
 
 <script scoped>
 import Child from '@/components/Child'
+import ElButton from '../../node_modules/element-ui/packages/button/src/button'
 
 export default{
   props: [],
@@ -23,6 +24,7 @@ export default{
     }
   },
   components: {
+    ElButton,
     Child
   }
 }
