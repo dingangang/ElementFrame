@@ -15,9 +15,9 @@ npm run dev
 npm run build
 ```
 ## 简介
-框架中综合了Vue.js全家桶。UI组件启用的ElementUI。ElementUI采用的是全局引入模式，如需修改成按需引入，请按官方指引修改。
+框架中综合了Vue.js全家桶。UI组件启用的ElementUI。ElementUI已经按照按需引入配置（避免某些风险），如果仅仅是写demo用可以按照全部引入的方式配置。
 
-配置均已完善，对照ElementUI库使用即可。如需禁用eslint，请自行配置。
+配置均已完善，对照ElementUI库使用即可。eslint采用的是标准的配置，推荐按照标准配置编写代码。
 
 整个项目中仅做了基本的配置，有其他的要求请自行拓展。
 
