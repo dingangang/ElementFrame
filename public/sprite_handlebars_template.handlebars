@@ -4,13 +4,12 @@
 }
 $randomId: parse-random(1000000);
 
-$spriteSrc: "~@/assets/sprite.png?v=1534324342000";
-$spriteWidth: 148px;
-$spriteHeight: 88px;
-  $activity-bactive: -92px 0px 56px 56px;
-  $add: 0px 0px 88px 88px;
-  $psw: -92px -60px 13px 16px;
-  $user: -109px -60px 13px 16px;
+$spriteSrc: "{{{spritesheet.image}}}";
+$spriteWidth: {{{spritesheet.width}}}px;
+$spriteHeight: {{{spritesheet.height}}}px;
+{{#items}}
+  ${{name}}: {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}};
+{{/items}}
 
 @function px2rem ($px) {
   // web端使用的话，直接返回$px，即不做转换，另外此处转换以75px为底？ 在手机项目中值得商榷
@@ -78,16 +77,21 @@ $spriteHeight: 88px;
   display: inline-block;
 }
 
+{{#sprite}}
+{{class}} {
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border: none;
+  background: url('#{$spriteSrc}');
+  @include inline-block();
+  vertical-align: middle;
+  font-style: normal;
+  color:$icon-font-color;
+}
+{{/sprite}}
 // 使用方法：生成的雪碧图的类型全部是mixin,所以在特定的类名中@include mixin()即可
-  @mixin mix-activity-bactive() {
-    @include sprite($activity-bactive, $precision: false);
+{{#items}}
+  @mixin mix-{{name}}() {
+    @include sprite(${{name}}, $precision: false);
   }
-  @mixin mix-add() {
-    @include sprite($add, $precision: false);
-  }
-  @mixin mix-psw() {
-    @include sprite($psw, $precision: false);
-  }
-  @mixin mix-user() {
-    @include sprite($user, $precision: false);
-  }
+{{/items}}

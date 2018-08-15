@@ -1,3 +1,9 @@
-h1{
-    font-size: 30px!important;
+body{
+  font-size: 20px;
+}
+
+
+
+.xadd{
+  @include mix-add()
 }

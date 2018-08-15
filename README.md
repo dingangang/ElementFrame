@@ -1,32 +1,42 @@
-# ElementFrame
+# frame
 
-> Vue+VueRouter+Vuex+Element-UI+Spritesmith
-
-## 开始
-
-``` bash
-# install dependencies
+## Project setup
+```
 npm install
+```
 
-# serve with hot reload at localhost:8080
-npm run dev
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-# build for production with minification
+### Compiles and minifies for production
+```
 npm run build
 ```
-## 简介
-框架中综合了Vue.js全家桶。UI组件启用的ElementUI。ElementUI已经按照按需引入配置（避免某些风险），如果仅仅是写demo用可以按照全部引入的方式配置。
 
-配置均已完善，对照ElementUI库使用即可。eslint采用的是标准的配置，推荐按照标准配置编写代码。
+### Lints and fixes files
+```
+npm run lint
+```
 
-整个项目中仅做了基本的配置，有其他的要求请自行拓展。
+# 说明
+vue-cli 3.0 改变了整体的目录结构，更简洁和清晰，views文件夹中存放视图，components文件夹中存放组件。
 
-### Spritesmith 
-启用了方便的雪碧图。
+### element-ui
+之前按需引入element-ui出现了某个组件无法找到的情况，所以直接全部引入。element-ui提供了配合vue-cli 3.0 的插件，已经安装好，直接按照官网组件使用即可。
 
-icons请放在static/icons文件夹中。
+### webpack-spritesmith
+采用了雪碧图，vue-cli 3.0 中，public取代了原来的static，将小图标文件放入 public/images/icons之后，会自动编译和生成
+src/assets/sprite.png 和 src/css/sprite.scss 
+本次生成的sprite.scss 中全部都是 mixin 类型，在需要使用图标的地方的类名中@include mixin()即可，对应mixin的名称为：
+mix-iconName()
 
-对应的Spritesmith配置在build/webpack.dev.conf.js中。部分注释了的内容时是适配移动端的雪碧图生成配置。请按需修改。
+### mock
+拦截请求信息，并返回随机的数据，具体用法请参考官网。这是为了在后端接口尚未完成时候前端可以进行独立的开发，仅在开发环境中可以使用。
 
-在assets的handler中css.handlebars是配置雪碧图的模板。
+### proxy跨域
+vue.config.js中配置了跨域，请按具体需求使用。
 
+### CSS结构
+main.js为主入口，请拆分各组件分别引入

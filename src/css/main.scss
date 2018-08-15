@@ -1,3 +1,5 @@
-//main.scss作为总入口，分类管理其他scss文件，最后集中引入
+@import "variables";
+@import "reset";
 @import "sprite";
+@import "_components/index";
 @import "common";
