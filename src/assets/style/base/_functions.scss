@@ -1,0 +1,60 @@
+/* ---------------------------------------------------------------------
+ * 描述：函数定义
+ * --------------------------------------------------------------------- */
+// stylelint-disable block-closing-brace-newline-after
+
+// 获取前一个map值
+@function map-prev($map, $key, $keys:map-keys($map)) {
+  $n:index($keys, $key);
+
+  @if $n == null or $n == 1 {
+    @return null;
+  } @else {
+    @return nth(map-values($map), $n - 1);
+  }
+}
+
+// 获取后一个map值
+@function map-next($map, $key, $keys:map-keys($map)) {
+  $n:index($keys, $key);
+
+  @if $n == null or $n == length($map) {
+    @return null;
+  } @else {
+    @return nth(map-values($map), $n + 1);
+  }
+}
+
+// 获取反序的map-keys
+@function map-reverse-keys($map) {
+  $result: ();
+  $keys: map-keys($map);
+
+  @for $i from length($keys) through 1 {
+    $result: append($result, nth($keys, $i));
+  }
+
+  @return $result;
+}
+
+// 获指定色在色板的右下侧颜色
+@function rightDownColor($color, $value) {
+  @return darken(saturate($color, $value), $value);
+}
+
+// 获取hover色值
+// 计算公式：饱和度增加6%,亮度降低6%
+@function hover($color) {
+  @return rightDownColor($color, 6%);
+}
+
+// 获取active色值
+// 计算公式：饱和度增加10%,亮度降低10%
+@function active($color) {
+  @return rightDownColor($color, 10%);
+}
+
+// 获取精确的间距值
+@function getExactSpace($spacing, $font-size: $font-size-default, $line-height: $line-height-default) {
+  @return $spacing - ($font-size * $line-height - $font-size) / 2;
+}

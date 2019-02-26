@@ -2,15 +2,16 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import axios from 'axios'
+import { formatNum } from '@/utils/formatNum.js'
+import './plugins/axios'
 import './plugins/element.js'
-import './css/main.scss'
-// 仅在开发环境下使用mock
-console.log(process.env)
-process.env.NODE_ENV === 'development' && require('@/mock')
+import './plugins/chart.js'
+import './components/index'
+import './api/api.js'
+import './assets/style/index.scss'
 
-Vue.prototype.$axios = axios
 Vue.config.productionTip = false
+Vue.prototype.$formatNum = formatNum
 
 new Vue({
   router,

@@ -1,0 +1,131 @@
+/* 文本 */
+
+// stylelint-disable
+// 文本颜色
+.text-main {
+  color: $color-text-main !important;
+}
+
+.text-secondary {
+  color: $color-text-secondary !important;
+}
+
+.text-weakening {
+  color: $color-text-weakening !important;
+}
+
+.text-disabled {
+  color: $color-text-disabled !important;
+}
+
+.text-highlight {
+  color: $color-text-highlight !important;
+}
+
+.text-link {
+  color: $color-text-link !important;
+
+  &:hover {
+    color: $color-text-link-hover !important;
+  }
+}
+
+.text-dlink {
+  color: $color-text-main !important;
+
+  &:hover {
+    color: $color-text-link !important;
+  }
+}
+
+.text-slink {
+  color: $color-text-secondary !important;
+
+  &:hover {
+    color: $color-text-link !important;
+  }
+}
+
+.text-wlink {
+  color: $color-text-weakening !important;
+
+  &:hover {
+    color: $color-text-link !important;
+  }
+}
+
+.text-info {
+  color: $color-text-info !important;
+}
+
+.text-success {
+  color: $color-text-success !important;
+}
+
+.text-warning {
+  color: $color-text-warning !important;
+}
+
+.text-error {
+  color: $color-text-error !important;
+}
+
+.text-white {
+  color: #fff !important;
+}
+
+.text-simple {
+  color: #647892 !important;
+}
+// 文本对齐
+.text-left {
+  text-align: left !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+// 文本字体尺寸
+.text-small {
+  font-size: $font-size-small !important;
+}
+
+.text-default {
+  font-size: $font-size-default !important;
+}
+
+.text-medium {
+  font-size: $font-size-medium !important;
+}
+
+.text-large {
+  font-size: $font-size-large !important;
+}
+
+.text-huge {
+  font-size: $font-size-huge !important;
+}
+
+// 文本字体粗细
+.text-bold {
+  font-weight: 700 !important;
+}
+
+.text-normal {
+  font-weight: 400 !important;
+}
+
+.text-light {
+  font-weight: 300 !important;
+}
+
+// 文本超出省略
+.text-ellipsis {
+  display: inline-block;
+  @include ellipsis;
+}

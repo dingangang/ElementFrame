@@ -1,0 +1,75 @@
+/* 间距尺寸 */
+
+// stylelint-disable
+
+// 百分比宽度
+@for $i from 1 through 20 {
+  .w-#{$i * 5} {
+    width: $i * 5 + "%" !important;
+  }
+}
+
+// 高度尺寸
+.h-step {
+  height: $ctr-height-step !important;
+}
+
+.h-default {
+  height: $ctr-height-default !important;
+}
+
+.h-small {
+  height: $ctr-height-small !important;
+}
+
+.h-medium {
+  height: $ctr-height-medium !important;
+}
+
+.h-large {
+  height: $ctr-height-large !important;
+}
+
+.h-full {
+  height: 100% !important;
+}
+
+// 间距
+$props: (
+  "m": margin,
+  "p": padding
+);
+
+$sides: (
+  "t": top,
+  "r": right,
+  "b": bottom,
+  "l": left,
+  "x": right left,
+  "y": top bottom,
+  "a": top right bottom left
+);
+
+$sizes: (
+  "step": $spacing-step,
+  "tiny": $spacing-tiny,
+  "small": $spacing-small,
+  "medium": $spacing-medium,
+  "large": $spacing-large,
+  "huge": $spacing-huge,
+  '0': 0
+);
+
+@each $propKey, $propVal in $props {
+  @each $sideKey, $sideVal in $sides {
+    $side: if($sideKey != a, $sideKey, '');
+
+    @each $sizeKey, $sizeVal in $sizes {
+      .#{$propKey}#{$side}-#{$sizeKey} {
+        @each $value in $sideVal {
+          #{$propVal}-#{$value}: $sizeVal !important;
+        }
+      }
+    }
+  }
+}

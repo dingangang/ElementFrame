@@ -1,0 +1,157 @@
+/* ---------------------------- 工具类mixin -------------------------------- */
+
+// 超出省略
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 垂直居中对齐
+@mixin center-y {
+  white-space: nowrap;
+
+  &:after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+  }
+}
+
+// 清除浮动
+@mixin clearfix {
+  &:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+
+// 生成禁用样式
+@mixin disable($isControl: false) {
+  @if $isControl == true {
+    color: $color-text-disabled;
+    background-color: $color-bg-disabled;
+    border-color: $color-border-disabled;
+  } @else {
+    opacity: .45;
+  }
+
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+// 生成小三角形
+@mixin triangle($direction:down, $size:5px, $color:null) {
+  $placements: top, left, bottom, right;
+
+  $placement-map:(
+    up: bottom,
+    right: left,
+    down: top,
+    left: right
+  );
+
+  $direction-reversal: map-get($placement-map, $direction);
+  display: inline-block;
+  border: $size solid;
+
+  @each $placement in $placements {
+    @if $placement != $direction-reversal {
+      border-#{$placement}-color: transparent;
+    }
+  }
+
+  @if $color != null {
+    border-#{$direction-reversal}-color: $color;
+  }
+}
+
+// 生成箭头
+@mixin arrow($direction: down, $size: 10px, $width: 1px, $color: null) {
+  $rotateMap: (
+    up: rotate(-45deg),
+    right: rotate(45deg),
+    down: rotate(-45deg),
+    left: rotate(45deg)
+  );
+
+  $border: null;
+
+  @if $color == null {
+    $border: $width solid;
+  } @else {
+    $border: $width solid $color;
+  }
+
+  display: inline-block;
+  width: $size;
+  height: $size;
+
+  @if $direction == right or $direction == up {
+    border-top: $border;
+    border-right: $border;
+  } @else {
+    border-bottom: $border;
+    border-left: $border;
+  }
+
+  transform: map-get($map: $rotateMap, $key: $direction);
+  transform-origin: center center;
+}
+
+// 生成一条垂直线
+@mixin lineY($lineColor:$color-border-main) {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: $lineColor;
+}
+
+// 生成滚动条样式
+@mixin scroll($size:8px, $bg:#f5f5f5, $track-bg:#f5f5f5, $thumb-bg: #666) {
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+
+    background-color: $bg;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $track-bg;
+    border-radius: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $thumb-bg;
+    border-radius: $size;
+  }
+}
+
+// 在手机端生成1个像素的边框
+@mixin lines($placements: bottom, $color: #ccc) {
+
+  $bgs: ();
+
+  @each $placement in $placements {
+    @if $placement == top {
+      $bg: linear-gradient(to top, transparent 49%, $color 50%) no-repeat top left / 100% 1px;
+      $bgs: append($bgs, $bg, comma);
+    } @else if $placement == right {
+      $bg: linear-gradient(to right, transparent 49%, $color 50%) no-repeat top right / 1px 100%;
+      $bgs: append($bgs, $bg, comma);
+    } @else if $placement == bottom {
+      $bg: linear-gradient(to bottom, transparent 49%, $color 50%) no-repeat bottom left / 100% 1px;
+      $bgs: append($bgs, $bg, comma);
+    } @else if $placement == left {
+      $bg: linear-gradient(to left, transparent 49%, $color 50%) no-repeat top left  / 1px 100%;
+      $bgs: append($bgs, $bg, comma);
+    }
+  }
+
+  background: $bgs;
+}

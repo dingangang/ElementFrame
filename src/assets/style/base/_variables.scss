@@ -1,0 +1,124 @@
+// _variables.scss 已经由vue.config.js全局配置可以直接使用
+/** ---------------------------------------------------------------------
+ ** 描述：sass变量
+ ** --------------------------------------------------------------------- */
+ @import "functions";
+
+ /* ------------------------------ 全局配置 ------------------------------ */
+ 
+ /* 应用类型{String} */
+ $app-type: web !default; // [前台样式:web, 后台样式:admin, 移动端样式:mobile]
+ 
+ /* ------------------------------ 颜色体系 ------------------------------ */
+ 
+ /* 主题色{Color+} */
+ $color-main: #08f !default; // 主色
+ $color-main-hover: hover($color-main) !default; // 主色:滑过
+ $color-main-active: active($color-main) !default; // 主色:激活
+ $color-secondary: #6ec940 !default; // 辅色
+ $color-secondary-hover: hover($color-secondary) !default; // 辅色:滑过
+ $color-secondary-active: active($color-secondary) !default; // 辅色:激活
+ $color-weakening: #fff !default; // 弱化色
+ 
+ /* 背景色{Color+} */
+ $color-bg-body:#060c18 !default; // 页面背景
+ $color-bg-content:#fff !default; // 内容背景
+ $color-bg-card:#ebf4fc !default; // 卡片背景
+ $color-bg-footer: #e3e9ee !default; // 页脚背景
+ $color-bg-disabled: #eee !default; // 禁用背景
+ $color-bg-mask: rgba(0, 0, 0, .4) !default; // 摭盖层背景
+ $color-bg-tabsidebar: #edf0f5 !default; // Tab侧边栏背景色
+ 
+ /* 标识色{Color+} */
+ $color-info:#ecf6ff !default; // 提示
+ $color-success:#ecfceb !default; // 成功
+ $color-warning:#fffbe7 !default; // 警告
+ $color-error:#fff0ef !default; // 错误
+ 
+ /* 文本色{Color+} */
+ $color-text-main:#fff !default; // 主文本
+ $color-text-table: #d9e7ff; // 表格内容
+ $color-text-tab: #bad3ff; // tab表头默认文字
+ $color-text-before-text: #00a7fe; // 数字前文字
+ $color-text-info: #07ffff !default; // 数字 状态正常
+ $color-text-warning: #fff2b2 !default; // 文字 预警状态
+ $color-text-error: #fb6c84 !default; // 文字 告警状态
+ $color-text-table-header: #94aad4 !default; // 表头文字颜色
+ $color-text-table-body: #d9e7ff !default; // 表格文字颜色
+
+ $color-text-secondary:#94aad4 !default; // 辅助文本
+ $color-text-weakening:#bad3ff !default; // 弱化文本
+ $color-text-disabled:#ccc !default; // 禁用文本
+ $color-text-highlight:#07ffff !default; // 高亮文本
+ $color-text-success: #f43c37 !default; // 反转文本
+ $color-text-inverse: #fff !default; // 反转文本
+ $color-text-link:$color-main !default; // 链接色
+ $color-text-link-hover: hover($color-text-link) !default; // 链接滑过色
+ $color-text-placeholder: #b2b2b2 !default; // 占位文本
+ $color-text-: #b2b2b2 !default; // 占位文本
+ 
+ /* 边框色{Color+} */
+ $color-border-main:#e1e7eb !default; // 主边框
+ $color-border-control:#ccc !default; // 控件边框
+ $color-border-secondary:#e6e8eb !default; // 辅边框
+ $color-border-weakening:#c0d8f1 !default; // 弱化边框
+ $color-border-disabled:#eee !default; // 禁用边框
+ 
+ /* ------------------------------ 字体体系 ------------------------------ */
+ 
+ /* 字体{NoChange} */
+ $font-family-default: "Helvetica Neue", "Microsoft YaHei", "\5b8b\4f53", "Arial", "Helvetica", sans-serif !default; // 字体
+ 
+ /* 字体尺寸{FontSize+} */
+ $font-size-default: 20px !default; // 默认字号
+ $font-size-small: 22px !default; // 图表坐标、表格内容
+ $font-size-medium: 24px !default; // 表头文字，小标题
+ $font-size-large: 28px !default; // 模块标题
+ $font-size-huge: 40px !default; // 页面大标题
+ 
+ /* ------------------------------ 间距体系 ------------------------------ */
+ 
+ /* 行高{NoChange} */
+ $line-height-default: 1.5 !default; // 行高
+ 
+ /* 间距{Spacing+} */
+ $spacing-step: 5px !default; // 间距步长
+ $spacing-tiny: $spacing-step * 2 !default; // 超小间距
+ $spacing-small: $spacing-step * 3 !default; // 小间距
+ $spacing-medium: $spacing-step * 4 !default; // 中间距
+ $spacing-large: $spacing-step * 6 !default; // 大间距
+ $spacing-huge: $spacing-step * 8 !default; // 超大间距
+ 
+ 
+ /* ------------------------------ 尺寸体系 ------------------------------ */
+ 
+ /* 控件高度{String+} */
+ $ctr-height-step: 6px !default; // 高度步长
+ $ctr-height-default: 30px !default; // 默认高度
+ $ctr-height-small: $ctr-height-default - $ctr-height-step !default; // 小高度
+ $ctr-height-medium: $ctr-height-default + $ctr-height-step !default; // 中高度
+ $ctr-height-large: $ctr-height-default + $ctr-height-step * 2 !default; // 大高度
+ 
+ /* 控件宽度{String+} */
+ $ctr-width-step: 40px !default; // 宽度步长
+ $ctr-width-default: 100% !default; // 默认高度
+ $ctr-width-tiny: $ctr-width-step * 2 !default; // 超小宽度
+ $ctr-width-small: $ctr-width-step * 3 !default; // 小宽度
+ $ctr-width-medium: $ctr-width-step * 4 !default; // 中宽度
+ $ctr-width-large: $ctr-width-step * 5 !default; // 大宽度
+ $ctr-width-huge: $ctr-width-step * 6 !default; // 超大宽度
+ 
+ /* ------------------------------ 其它 ------------------------------ */
+ 
+ /* 圆角{NoChange} */
+ $border-radius: 3px !default; // 小圆角
+ 
+ /* 过渡时间{NoChange} */
+ $time: .12s !default; // 过渡时间
+ 
+ /* 渲染层级{String} */
+ $zindex-high: 1000 !default; // 图层-高
+ $zindex-higher: 1030 !default; // 图层-更高
+ $zindex-highest: 1050 !default; // 图层-最高
+ 
+ 
